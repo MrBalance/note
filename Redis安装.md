@@ -84,7 +84,7 @@ ps -ef|grep redis|grep -v 'grep'
 
 若返回结果为：
 
-![1565149657613](C:\Users\kenfor\AppData\Roaming\Typora\typora-user-images\1565149657613.png)
+![截图1](img/redis/截图1.jpg)
 
 则表示已启动
 
@@ -96,7 +96,7 @@ ps -ef|grep redis|grep -v 'grep'
 
 若显示：
 
-![1565150293070](C:\Users\kenfor\Desktop\1565150293070.png)
+![截图2](img/redis/截图2.jpg)
 
 则表示已经连接上redis可以正常使用
 
