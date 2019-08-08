@@ -21,7 +21,7 @@ wget http://download.redis.io/releases/redis-4.0.8.tar.gz
 若是下载的tar，首先到/usr/local 路径下创建 redis 文件夹
 
 ```shell
-mkdir /usr/local/redis
+mkdir /usr/local/soft/redis
 ```
 
 将文件下载的tar 上传到redis文件夹下
@@ -35,7 +35,7 @@ tar xzvf redis-5.0.5.tar.gz
 ### 3. 安装
 
 ```shell
-cd /usr/local/redis/redis-5.0.5
+cd /usr/local/soft/redis-5.0.5
 ```
 
 ### 4. 编译
@@ -49,23 +49,23 @@ make
 创建路径
 
 ```shell
-mkdir /usr/local/redis/etc
-mkdir /usr/local/redis/bin
+mkdir -p /usr/local/soft/redis/etc
+mkdir -p /usr/local/soft/redis/bin
 ```
 
 移动
 
 ```shell
-cd /usr/local/redis/redis-5.0.5
-cp ./redis.conf /usr/local/redis/etc
-cd /usr/local/redis/redis-5.0.5/src
-cp ./mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-sentinel redis-server redis-trib.rb /usr/local/redis/bin
+cd /usr/local/soft/redis-5.0.5
+cp ./redis.conf /usr/local/soft/redis/etc
+cd /usr/local/soft/redis-5.0.5/src
+cp ./mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-sentinel redis-server redis-trib.rb /usr/local/soft/redis/bin
 ```
 
 ### 6.更改配置文件
 
 ```shell
-vim /usr/local/redis/etc/redis.conf
+vim /usr/local/soft/redis/etc/redis.conf
 ```
 
 将daemonize改为yes，并将bind 127.0.0.1 改为bind 0.0.0.0
@@ -73,7 +73,7 @@ vim /usr/local/redis/etc/redis.conf
 ### 7. 启动redis服务
 
 ```shell
-/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
+/usr/local/soft/redis/bin/redis-server /usr/local/soft/redis/etc/redis.conf
 ```
 
 查看端口号
@@ -91,7 +91,7 @@ ps -ef|grep redis|grep -v 'grep'
 ### 8. 客户端连接
 
 ```shell
-/usr/local/redis/bin/redis-cli
+/usr/local/soft/redis/bin/redis-cli
 ```
 
 若显示：
