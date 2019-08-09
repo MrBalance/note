@@ -200,7 +200,7 @@ java -jar dubbo-admin-0.1.jar
 # 后台启动
 nohup java -jar test.jar &
 # 后台指定路径日志输出
-java -jar dubbo-admin-0.1.jar > ./Logs/dubbo-admin.log &
+nohup java -jar dubbo-admin-0.1.jar > ./Logs/dubbo-admin.log &
 ```
 
 ## 四. 防火墙配置
