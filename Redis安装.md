@@ -106,3 +106,21 @@ ps：
 
 ​	exit				表示退出客户端
 
+
+
+## 三. 遇到问题
+
+虚拟机中安装了CentOS 7，在测试redis时解压后通过make命令编译报错，错误信息如下： 
+
+![截图3](/Users/duyunzhang/Desktop/note/img/redis/截图3.png)
+
+ 
+
+提示cc:未找到命令，原因是虚拟机系统中缺少gcc，安装一下gcc即可解决问题
+
+安装命令：
+
+```shell
+yum -y install gcc gcc-c++ kernel-devel 
+```
+

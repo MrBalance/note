@@ -34,19 +34,19 @@ mkdir /usr/local/soft
 
 ```shell
 tar xzvf /usr/local/soft/apache-zookeeper-3.5.5-bin.tar.gz
-mv ./apache-zookeeper-3.5.5-bin zookeeper
+mv ./apache-zookeeper-3.5.5-bin zookeeper-3.5.5
 ```
 
 ### 3.创建日志存放文件夹
 
 ```
-mkdir /usr/local/soft/zookeeper/data
+mkdir /usr/local/soft/zookeeper-3.5.5/data
 ```
 
 ### 4. 修改zoo_sample.cfg 为zoo.cfg
 
 ```shell
-cd /usr/local/soft/zookeeper/conf
+cd /usr/local/soft/zookeeper-3.5.5/conf
 cp ./zoo_sample.cfg ./zoo.cfg
 ```
 
@@ -56,7 +56,7 @@ cp ./zoo_sample.cfg ./zoo.cfg
 vim ./zoo.cfg
 ```
 
-修改zoo.conf中的datalogDir路径为/usr/local/soft/zookeeper/data
+修改zoo.conf中的datalogDir路径为/usr/local/soft/zookeeper-3.5.5/data
 
 ![](img\zookeeper+dobbo\截图1.jpg)
 
@@ -80,7 +80,7 @@ vim  /etc/profile
 
 ```
 ## zookeeper
-export ZOOKEEPER_HOME=/usr/local/soft/zookeeper
+export ZOOKEEPER_HOME=/usr/local/soft/zookeeper-3.5.5
 export PATH=$ZOOKEEPER_HOME/bin:$PATH
 ```
 
@@ -88,13 +88,17 @@ export PATH=$ZOOKEEPER_HOME/bin:$PATH
 
 ```shell
 zkServer.sh start
+#关闭内嵌的管理控制台防止占用8080端口
+zkServer.sh cd start
 # 带日志启动
 zkServer.sh start-foreground
 ```
 
+也可以zoo.cfg中增加admin.serverPort=没有被占用的端口号
+
 看见如图则表示启动成功
 
-![截图2](img/zookeeper+dobbo/截图2.jpg)
+![截图2](/Users/duyunzhang/Desktop/note/img/zookeeper+dobbo/截图2.jpg)
 
 停止zookeeper 
 
@@ -104,7 +108,9 @@ zkServer.sh stop
 
 看见如图则表示关闭成功
 
-## 三. dobbo安装![截图3](img/zookeeper+dobbo/截图3.jpg)
+![截图3](/Users/duyunzhang/Desktop/note/img/zookeeper+dobbo/截图3.jpg)
+
+## 三. dobbo安装
 
 ### 1. 安装tomcat
 
@@ -198,7 +204,8 @@ mvn -version
 ```shell
 java -jar dubbo-admin-0.1.jar
 # 后台启动
-nohup java -jar test.jar &
+java -jar test.jar &
+nohup java -jar dubbo-admin-0.1.jar &
 # 后台指定路径日志输出
 nohup java -jar dubbo-admin-0.1.jar > ./Logs/dubbo-admin.log &
 ```
