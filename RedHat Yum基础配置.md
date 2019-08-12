@@ -91,7 +91,7 @@ javac
 java -version
 ```
 
-## Centos7安装yum
+## Centos7安装yum配置
 
 ### 1. 查看Centos版本
 
