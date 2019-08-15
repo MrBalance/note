@@ -8,7 +8,7 @@ dubbo推荐采用三层架构api 、service、consumer的三个单独模块来�
 
 api层仅是一个接口层记录对外提供的接口和model
 
-![截图1](../学习笔记/img/spring-boot-dubbo/截图1.jpg)
+![截图1](/img/spring-boot-dubbo/截图1.jpg)
 
 ### 1.2. Service层
 
@@ -16,7 +16,7 @@ api层仅是一个接口层记录对外提供的接口和model
 
 service层主要提供相应的服务包括：实现类、dao层接口、mapping和util，其启动类放在最外层以便自动扫描
 
-![截图2](../学习笔记/img/spring-boot-dubbo/截图2.jpg)
+![截图2](/img/spring-boot-dubbo/截图2.jpg)
 
 #### 1.2.2. pom依赖
 
@@ -173,7 +173,7 @@ logging.level.com.mrbalance.mapping=debug
 
 consumer层主要是消费service层的接口，其主要由controller层和web资源组成
 
-![截图2](../%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img/spring-boot-dubbo/%E6%88%AA%E5%9B%BE3.jpg)
+![截图3](/img/spring-boot-dubbo/截图3.jpg)
 
 #### 1.2.2. pom依赖
 

@@ -98,7 +98,7 @@ zkServer.sh start-foreground
 
 看见如图则表示启动成功
 
-![截图2](/Users/duyunzhang/Desktop/note/img/zookeeper+dobbo/截图2.jpg)
+![截图2](/img/zookeeper+dobbo/截图2.jpg)
 
 停止zookeeper 
 
@@ -108,7 +108,7 @@ zkServer.sh stop
 
 看见如图则表示关闭成功
 
-![截图3](/Users/duyunzhang/Desktop/note/img/zookeeper+dobbo/截图3.jpg)
+![截图3](img/zookeeper+dobbo/截图3.jpg)
 
 ## 三. dobbo安装
 
@@ -159,6 +159,8 @@ vim /usr/local/soft/tomcat-9.0.22/conf/Catalina/localhost/manager.xml
 ```
 
 无须重启tomcat即可生效
+
+![截图4](img/zookeeper+dobbo/截图4.jpg)
 
 ### 2. maven 安装
 
