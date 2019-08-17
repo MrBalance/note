@@ -210,6 +210,7 @@ java -jar test.jar &
 nohup java -jar dubbo-admin-0.1.jar &
 # 后台指定路径日志输出
 nohup java -jar dubbo-admin-0.1.jar > ./Logs/dubbo-admin.log &
+nohup java -jar /usr/local/soft/spring-boot.jar/dubbo-admin-0.1.jar > /usr/local/soft/spring-boot.jar/Logs/dubbo-admin.log &
 ```
 
 ## 四. 防火墙配置
@@ -227,9 +228,26 @@ iptables -L -n
 iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
 iptables -I INPUT -p tcp --dport 2181 -j ACCEPT
-#iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
 #iptables -I INPUT -p tcp --dport 2182 -j ACCEPT
 ```
+
+配置防火墙
+
+```shell
+vim /etc/sysconfig/iptables
+```
+
+添加端口
+
+```properties
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 2181 -j ACCEPT
+```
+
+
 
 ### 3. 永久性生效
 
