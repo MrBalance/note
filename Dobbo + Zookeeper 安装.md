@@ -225,6 +225,9 @@ iptables -L -n
 
 ```shell
 #iptables -I INPUT -p udp --dport 161 -j ACCEPT
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -p tcp --dport 22122 -j ACCEPT
+iptables -I INPUT -p tcp --dport 23000 -j ACCEPT
 iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
 iptables -I INPUT -p tcp --dport 2181 -j ACCEPT
