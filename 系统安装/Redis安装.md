@@ -84,7 +84,7 @@ ps -ef|grep redis|grep -v 'grep'
 
 若返回结果为：
 
-![截图1](img/redis/截图1.jpg)
+![截图1](../img/redis/截图1.jpg)
 
 则表示已启动
 
@@ -96,7 +96,7 @@ ps -ef|grep redis|grep -v 'grep'
 
 若显示：
 
-![截图2](img/redis/截图2.jpg)
+![截图2](../img/redis/截图2.jpg)
 
 则表示已经连接上redis可以正常使用
 
@@ -112,7 +112,7 @@ ps：
 
 虚拟机中安装了CentOS 7，在测试redis时解压后通过make命令编译报错，错误信息如下： 
 
-![截图3](img/redis/截图3.png)
+![截图3](../img/redis/截图3.png)
 
  
 

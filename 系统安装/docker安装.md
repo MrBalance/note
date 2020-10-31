@@ -5,7 +5,7 @@
 较旧的 Docker 版本称为 docker 或 docker-engine 。如果已安装这些程序，请卸载它们以及相关的依赖项。
 
 ```shell
-$ sudo yum remove docker \
+sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -26,25 +26,29 @@ $ sudo yum remove docker \
 安装所需的软件包。yum-utils 提供了 yum-config-manager ，并且 device mapper 存储驱动程序需要 device-mapper-persistent-data 和 lvm2。
 
 ```shell
-$ sudo yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
+sudo yum install -y yum-utils device-mapper-persistent-data   lvm2
 ```
 
 使用以下命令来设置稳定的仓库。
 
 ```shell
-$ sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 ```
+
+设置阿里云镜像源（推荐）
+
+```shell
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
+```
+
+
 
 ### 安装 Docker Engine-Community
 
 安装最新版本的 Docker Engine-Community 和 containerd，或者转到下一步安装特定版本：
 
 ```shell
-$ sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
 如果提示您接受 GPG 密钥，请选是。
@@ -60,7 +64,7 @@ Docker 安装完默认未启动。并且已经创建好 docker 用户组，但�
 1. 列出并排序您存储库中可用的版本。此示例按版本号（从高到低）对结果进行排序。
 
    ```shell
-   $ yum list docker-ce --showduplicates | sort -r
+   yum list docker-ce --showduplicates | sort -r
    
    docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable
    docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable
@@ -71,7 +75,7 @@ Docker 安装完默认未启动。并且已经创建好 docker 用户组，但�
 2. 通过其完整的软件包名称安装特定版本，该软件包名称是软件包名称（docker-ce）加上版本字符串（第二列），从第一个冒号（:）一直到第一个连字符，并用连字符（-）分隔。例如：docker-ce-18.09.1。
 
    ```shell
-   $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
+   sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
    ```
 
    比如：
@@ -83,20 +87,20 @@ Docker 安装完默认未启动。并且已经创建好 docker 用户组，但�
    启动 Docker。
 
    ```shell
-   $ sudo systemctl start docker
+   sudo systemctl start docker
    ```
 
    通过运行 hello-world 映像来验证是否正确安装了 Docker Engine-Community 。
 
    ```shell
-   $ sudo docker run hello-world
+   sudo docker run hello-world
    ```
 
    ## 3. docker 安装完成后测试hello-world出现问题
 
    安装docker之后，测试hello-world镜像，终端卡在`Unable to find image 'hello-world:latest' locally`位置
 
-   ![20190403103019494](img\docker\20190403103019494.png)docker在本地没有找到hello-world镜像，也没有从docker仓库中拉取镜像，出项这个问题的原因：是应为docker服务器再国外，我们在国内
+   ![20190403103019494](../img/docker/20190403103019494.png)docker在本地没有找到hello-world镜像，也没有从docker仓库中拉取镜像，出项这个问题的原因：是应为docker服务器再国外，我们在国内
    无法正常拉取镜像，所以就需要我们为docker设置国内阿里云的镜像加速器；
    需要修改配置文件 `/etc/docker/daemon.json`  如下
 
@@ -108,5 +112,5 @@ Docker 安装完默认未启动。并且已经创建好 docker 用户组，但�
 
    配置文件daemmon,json添加阿里云镜像地址，保存并退出，并且重启docker服务（`systemctl restart docker`）
    docker重启之后，就可以正常拉取helloworld镜像了
-   ![2019040310561330](img\docker\2019040310561330.png)
+   ![2019040310561330](../img/docker/2019040310561330.png)
 
