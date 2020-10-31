@@ -342,7 +342,7 @@ vim ./zoo.cfg
 
 修改zoo.conf中的datalogDir路径为/usr/local/soft/zookeeper-3.5.8/data
 
-![截图1](../img/zookeeper+dobbo/截图1.jpg)
+![截图1](../img/zookeeper+dobbo/photo1.jpg)
 
 　配置文件中参数说明：
 
